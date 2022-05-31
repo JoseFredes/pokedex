@@ -1,0 +1,14 @@
+.detail-card {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    background-color: whitesmoke;
+    background-image: url('../assets/pokeball.png');
+    background-repeat: no-repeat;
+    background-size: 300px 300px;
+}
+
+.detail-image {
+    height: 300px;
+    width: 300px;
+}
