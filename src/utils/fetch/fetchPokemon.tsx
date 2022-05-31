@@ -5,5 +5,7 @@ const client = axios.create({
 
 export const fetchPokemons = async ( offset:number = 0) => {
     const response = await client.get(`pokemon?limit=12&offset=${offset}`);
-    return response.data;
+    const data = response.data
+    const status = response.status
+    return {data, status};
 }
