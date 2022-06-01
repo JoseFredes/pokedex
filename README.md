@@ -1,3 +1,10 @@
+
+LA tarea se encuentra deployada en heroku en el siguiente [link](https://tarea-pokedex.herokuapp.com/)
+
+#----------------------------------------
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
