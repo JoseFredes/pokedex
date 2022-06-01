@@ -32,26 +32,18 @@ function PokemonDetailCard({
         </div>
         <div className="flex flex-col justify-between p-4 bg-cyan-500 rounded-xl w-72 mt-4 mb-3">
           <div className=" text-white pt-4 pb-4 ml-3 font-mono">
-            <ul>
-              <li>
-                <p>
-                  <strong>Peso: </strong>
-                  {weight} Lbs
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>Altura: </strong>
-                  {height} ft
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>Experiencia base: </strong>
-                  {experience} pts
-                </p>
-              </li>
-            </ul>
+            <p>
+              <strong>Peso: </strong>
+              {weight} Lbs
+            </p>
+            <p>
+              <strong>Altura: </strong>
+              {height} ft
+            </p>
+            <p>
+              <strong>Experiencia base: </strong>
+              {experience} pts
+            </p>
           </div>
           <div className="inline-flex m-4 gap-2">
             {types.map((type, index) => (
