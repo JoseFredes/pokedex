@@ -12,7 +12,6 @@ const PokemonDetail = () => {
   const [image, setImage] = useState("");
   const [weight, setWeight] = useState("");
   const [height, setheigth] = useState("");
-  const [stats, setStats] = useState([]);
   const [types, setTypes] = useState([]);
   const [idPokemon, setIdPokemon] = useState("");
 
@@ -25,7 +24,6 @@ const PokemonDetail = () => {
           setImage(getPokemonImage(data.id.toString().padStart(3, "0")));
           setWeight(data.weight);
           setheigth(data.height);
-          setStats(data.stats.map((i: any) => [i.stat.name, i.base_stat]));
           setTypes(data.types.map((i: any) => i.type.name));
           setIdPokemon(data.id);
         }
@@ -35,13 +33,14 @@ const PokemonDetail = () => {
 
   useEffect(() => {
     getPokemonDetail();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
     <div>
       <div className="mt-2 ml-3">
         <button
-          className="bg-blue-700 text-white rounded-full px-4 py-4 cursor-pointer text-xl hover:bg-blue-900"
+          className="bg-gray-700 text-white rounded-full px-4 py-4 cursor-pointer text-xl hover:bg-gray-900"
           onClick={() => navigation(-1)}
         >
           Volver
@@ -54,7 +53,6 @@ const PokemonDetail = () => {
           experience={experience}
           weight={weight}
           height={height}
-          stats={stats as []}
           types={types as []}
           id={idPokemon}
         ></PokemonDetailCard>

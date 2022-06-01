@@ -6,10 +6,9 @@ import pokeball from '../assets/pokeball.png';
 type pokemonProps = {
   id: string;
   name: string;
-  url: string;
 };
 
-const PokemonCard = ({ id, name, url }: pokemonProps) => {
+const PokemonCard = ({ id, name}: pokemonProps) => {
   const idPokemon = id.toString().padStart(3, "0");
   const pokemonImg = getPokemonImage(idPokemon);
 
