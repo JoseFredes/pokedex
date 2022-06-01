@@ -15,7 +15,7 @@ const PokemonCard = ({ id, name}: pokemonProps) => {
   return (
     <div className="bg-slate-100 h-96 mt-4 mx-3 rounded-md ">
       <div>
-        <img className="hover:animate-bounce bg-white h-56 w-56 rounded-full" src={pokemonImg} alt={name} />
+        <img className="object-contain hover:animate-pulse border bg-white h-56 w-56 rounded-lg" src={pokemonImg} alt={name} />
       </div>
       <div className="grid justify-items-center text-xm font-bold">
         <h3 className=" pt-5 ">{name}</h3>
