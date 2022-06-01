@@ -1,14 +1,60 @@
-.detail-card {
+.detail-container{
+    padding-right: 2rem;
+    padding-left: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.background-card {
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
     background-color: whitesmoke;
+}
+
+.background-image{
     background-image: url('../assets/pokeball.png');
     background-repeat: no-repeat;
-    background-size: 300px 300px;
+    background-size: 16.25rem 16.25rem;
+    margin-left: 1.25rem;
+    padding-bottom: 3.125rem;
 }
 
 .detail-image {
-    height: 300px;
-    width: 300px;
+    height: 13.75rem;
+    width: 13.75rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+.detail-title{
+    text-align: center;
+    padding-top: 0.625rem;
+    font-family: monospace;
+}
+
+.detail-card{
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    font-family: monospace;
+    background-color:darkcyan;
+    height: 150px;
+    width: 220px;
+    color:  white;
+    border-radius: 1rem;
+    margin: auto;
+    left: 35%;
+}
+
+.card-content{
+    padding-top: 1.25rem;
+    padding-left: 1rem;
+    text-align: justify;
+}
+
+p{
+    font-family: monospace;
 }

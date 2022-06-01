@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { getPokemonImage } from "../utils/getPokemonImage";
-import "./pokemonCard.css";
+import "../index.css";
+import pokeball from '../assets/pokeball.png';
 
 type pokemonProps = {
   id: string;
@@ -13,20 +14,21 @@ const PokemonCard = ({ id, name, url }: pokemonProps) => {
   const pokemonImg = getPokemonImage(idPokemon);
 
   return (
-    <div className="pokemon-card">
+    <div className="bg-slate-100 h-96 mt-4 mx-3 rounded-md ">
       <div>
-        <img className="image" src={pokemonImg} alt={name} />
+        <img className="hover:animate-bounce bg-white h-56 w-56 rounded-full" src={pokemonImg} alt={name} />
       </div>
-      <div>
-        <h3>{name}</h3>
-        <h3>#{idPokemon}</h3>
+      <div className="grid justify-items-center text-xm font-bold">
+        <h3 className=" pt-5 ">{name}</h3>
+        <h3 >#{idPokemon}</h3>
       </div>
-      <div>
+      <div className="grid justify-items-center text-xs font-bold">
+          <p className="pt-1">Ver más</p>
         <a href={`/${id}`}>
-          <button className="button-card">Ver más</button>
+          <button className="flex pt-1" > <img className="hover:rotate-180 h-10 w-10 pointer-events-auto" src={pokeball} alt="pokeball" /></button>
         </a>
       </div>
-    </div>
+      </div>
   );
 };
 
