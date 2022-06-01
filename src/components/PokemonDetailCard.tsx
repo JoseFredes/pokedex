@@ -20,10 +20,11 @@ function PokemonDetailCard({
   types,
   id,
 }: pokemonDetailProps) {
+  const idPokemon = id.toString().padStart(3, "0");
   return (
     <div className="flex flex-col bg-gray-200 m-6 p-1 rounded-xl">
       <h1 className="flex font-bold justify-center text-2xl pt-4">
-        {name} #{id}{" "}
+        {name} #{idPokemon}{" "}
       </h1>
       <div className="flex flex-wrap justify-center">
         <div className="bg-white rounded-lg items-center m-4">

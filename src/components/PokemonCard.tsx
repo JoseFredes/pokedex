@@ -2,6 +2,7 @@ import React from "react";
 import { getPokemonImage } from "../utils/getPokemonImage";
 import "../index.css";
 import pokeball from '../assets/pokeball.png';
+import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
 
 type pokemonProps = {
   id: string;
@@ -11,6 +12,7 @@ type pokemonProps = {
 const PokemonCard = ({ id, name}: pokemonProps) => {
   const idPokemon = id.toString().padStart(3, "0");
   const pokemonImg = getPokemonImage(idPokemon);
+  const formattedName = capitalizeFirstLetter(name)
 
   return (
     <div className="bg-slate-100 h-96 mt-4 mx-3 rounded-md ">
@@ -18,7 +20,7 @@ const PokemonCard = ({ id, name}: pokemonProps) => {
         <img className="object-contain hover:animate-pulse border bg-white h-56 w-56 rounded-lg" src={pokemonImg} alt={name} />
       </div>
       <div className="grid justify-items-center text-xm font-bold">
-        <h3 className=" pt-5 ">{name}</h3>
+        <h3 className=" pt-5 ">{formattedName}</h3>
         <h3 >#{idPokemon}</h3>
       </div>
       <div className="grid justify-items-center text-xs font-bold">

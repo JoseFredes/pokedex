@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getPokemonImage } from "../utils/getPokemonImage";
 import { fetchPokemonDetail } from "../utils/fetch/fetchPokemonDetail";
 import PokemonDetailCard from "../components/PokemonDetailCard";
+import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter";
 
 const PokemonDetail = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const PokemonDetail = () => {
     if (id) {
       fetchPokemonDetail(id).then(({ data, status }) => {
         if (status === 200) {
-          setName(data.name);
+          setName(capitalizeFirstLetter(data.name));
           setExperience(data.base_experience);
           setImage(getPokemonImage(data.id.toString().padStart(3, "0")));
           setWeight(data.weight);
