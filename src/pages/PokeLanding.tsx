@@ -6,6 +6,8 @@ import "../index.css";
 
 const PokeLanding = () => {
   const totalPokemons: number = 898;
+  var limit: number = 12;
+  const remainder = totalPokemons % limit
   const [pokemons, setPokemons] = useState(
     JSON.parse(localStorage.getItem("pokemon")!) || []
   );
@@ -32,34 +34,39 @@ const PokeLanding = () => {
   };
   useEffect(() => {
     getPokemons();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [firstPokemons.length]);
 
   const handleLoadMore = () => {
-    if (pokemons.length <= totalPokemons) {
-      setIsLoading(true);
-      const pokemonQuantity = pokemons.length;
-      fetchPokemons(pokemonQuantity)
-        .then(({ data, status }) => {
-          if (status === 200) {
+    setIsLoading(true);
+    const pokemonQuantity: number = pokemons.length; 
+    if(pokemonQuantity >= totalPokemons - remainder){
+       limit = remainder;
+    }
+    fetchPokemons(pokemonQuantity, limit)
+      .then(({ data, status }) => {
+        if (status === 200) {
+          if (pokemons.length < totalPokemons) {
             setPokemons(pokemons.concat(data.results));
             localStorage.setItem(
               "pokemon",
-              JSON.stringify(pokemons.concat(data.results))
-            );
+              JSON.stringify(pokemons.concat(data.results)));
             setIsLoading(false);
           } else {
-            console.log(`OOPS error : ${status}`);
+            setIsLoading(true);
           }
-        })
-        .catch((error) => console.log(` Error : ${error}`));
-    }
+        } else {
+          console.log(`OOPS error : ${status}`);
+        }
+      })
+      .catch((error) => console.log(` Error : ${error}`));
   };
 
   const handleColapseItems = () => {
     setPokemons(firstPokemons);
     localStorage.setItem("pokemon", JSON.stringify(firstPokemons));
     window.scroll({ top: 0 });
+    setIsLoading(false);
   };
 
   return (
@@ -68,11 +75,7 @@ const PokeLanding = () => {
         {pokemons.map((pokemon: { name: string; url: string }) => {
           const idPokemon = pokemon.url.split("/")[6];
           return (
-            <PokemonCard
-              id={idPokemon}
-              name={pokemon.name}
-              key={idPokemon}
-            />
+            <PokemonCard id={idPokemon} name={pokemon.name} key={idPokemon} />
           );
         })}
       </div>
