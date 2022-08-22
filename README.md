@@ -1,7 +1,7 @@
 
-LA tarea se encuentra deployada en heroku en el siguiente [link](https://tarea-pokedex.herokuapp.com/)
+La tarea se encuentra deployada en heroku en el siguiente [link](https://tarea-pokedex.herokuapp.com/)
 
-#----------------------------------------
+----------------------------------------
 
 
 
